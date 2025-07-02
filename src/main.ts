@@ -1,7 +1,7 @@
+import 'source-map-support/register';
 import { NestFactory } from '@nestjs/core';
 import { ConfigService } from '@nestjs/config';
 import { ValidationPipe } from '@nestjs/common';
-import { AppModule } from './app.module';
 import {
   FastifyAdapter,
   NestFastifyApplication,
@@ -9,6 +9,7 @@ import {
 
 import helmet from '@fastify/helmet';
 import { LoggerInterceptor } from './shared/interceptors/logger.interceptor';
+import { AppModule } from './modules/app/app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create<NestFastifyApplication>(
@@ -40,6 +41,5 @@ async function bootstrap() {
     console.log(`Application is running on: ${port}`);
   });
 }
-
 // eslint-disable-next-line @typescript-eslint/no-floating-promises
 bootstrap();

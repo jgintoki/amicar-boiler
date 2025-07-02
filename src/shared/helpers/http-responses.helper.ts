@@ -2,14 +2,19 @@ import { HttpException } from '@nestjs/common';
 import { HttpResponse } from '../types/commons.interface';
 
 export const httpErrorResponse = (params: HttpResponse) => {
+  const defaultParams: HttpResponse = {
+    statusCode: 500,
+    message: 'An unexpected error occurred',
+  };
+
   throw new HttpException(
     {
-      status: params.status,
-      title: params.title,
+      ...defaultParams,
+      statusCode: params.statusCode,
       message: params.message,
       response: params.response,
     },
-    params.status,
+    params.statusCode,
   );
 };
 
@@ -17,8 +22,7 @@ export const httpSuccessResponse = <T extends Record<string, unknown>>(
   params: HttpResponse<T>,
 ) => {
   return {
-    status: params.status,
-    title: params.title,
+    statusCode: params.statusCode,
     message: params.message,
     response: params.response,
   };

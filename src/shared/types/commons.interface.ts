@@ -1,8 +1,8 @@
 export interface HttpResponse<
   T extends Record<string, unknown> = Record<string, unknown>,
 > {
-  status: number;
-  title: string;
+  statusCode: number;
+  title?: string;
   message: string;
   response?: T;
 }

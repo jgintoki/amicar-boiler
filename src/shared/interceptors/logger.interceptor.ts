@@ -6,8 +6,8 @@ import {
 } from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { DefaultLogger } from '../helpers/sign-logger.helper';
 import { getTimeDuration } from '../helpers/get-time-duration.helper';
+import { DefaultLogger } from '../helpers/default-logger.helper';
 
 const getRequestData = (data: unknown): Record<string, unknown> => {
   const result: Record<string, unknown> = {};
@@ -61,7 +61,7 @@ export class LoggerInterceptor implements NestInterceptor {
 
         this.logger.error({
           message: `[${id}] Response - Url: ${request.url}, Date: ${endDate.toISOString()}, Duration: ${toSeconds}s, Error:${castedError.message}`,
-          trace: castedError?.stack,
+          stack: castedError?.stack,
         });
 
         throw error;

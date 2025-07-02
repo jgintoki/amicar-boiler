@@ -19,7 +19,7 @@ export class DefaultLogger extends Logger {
     });
   }
 
-  error(object: { message: string; trace?: string; context?: string }) {
+  error(object: { message: string; stack?: string; context?: string }) {
     super.error({
       ...object,
       message: `😿😿😿 (ERROR) ${object.message}`,
