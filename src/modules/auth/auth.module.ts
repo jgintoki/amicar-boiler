@@ -8,6 +8,7 @@ import { AuthController } from './auth.controller';
 import { AuthGuard } from './guards/auth.guard';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { SsoService } from 'src/shared/services/sso-services/sso.service';
+import { UsersModule } from '../users/users.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { SsoService } from 'src/shared/services/sso-services/sso.service';
       }),
       inject: [ConfigService],
     }),
+    UsersModule,
   ],
   controllers: [AuthController],
   providers: [
