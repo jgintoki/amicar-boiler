@@ -3,7 +3,7 @@ import { UserPrimitive } from 'src/shared/entitites/user';
 import { PrismaService } from 'src/shared/services/prisma/prisma.service';
 
 @Injectable()
-export class UserFindOneRepositoryService {
+export class UserFindOneRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
   async execute(id: number): Promise<UserPrimitive | null> {

@@ -7,13 +7,13 @@ import {
   ParseIntPipe,
 } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UsersService } from './services/users-create.service';
 import { UserFindOneService } from './services/user-find-one.service';
+import { UsersCreateService } from './services/users-create.service';
 
 @Controller('users')
 export class UsersController {
   constructor(
-    private readonly usersCreateService: UsersService,
+    private readonly usersCreateService: UsersCreateService,
     private readonly userFindOneService: UserFindOneService,
   ) {}
 

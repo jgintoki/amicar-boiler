@@ -1,19 +1,17 @@
 import { Injectable } from '@nestjs/common';
 import { UserPrimitive } from 'src/shared/entitites/user';
-import { UserFindOneRepositoryService } from '../repositories/user-find-one-repository';
 import { DefaultLogger } from 'src/shared/helpers/default-logger.helper';
 import { httpErrorResponse } from 'src/shared/helpers/http-responses.helper';
+import { UserFindOneRepository } from '../repositories/user-find-one-repository';
 @Injectable()
 export class UserFindOneService {
   private logger = new DefaultLogger(UserFindOneService.name);
 
-  constructor(
-    private readonly userFindOneRepository: UserFindOneRepositoryService,
-  ) {}
+  constructor(private readonly repository: UserFindOneRepository) {}
 
   async execute(id: number): Promise<UserPrimitive> {
     try {
-      const user = await this.userFindOneRepository.execute(id);
+      const user = await this.repository.execute(id);
 
       if (!user) {
         return httpErrorResponse({

@@ -6,14 +6,14 @@ import { httpErrorResponse } from 'src/shared/helpers/http-responses.helper';
 import { DefaultLogger } from 'src/shared/helpers/default-logger.helper';
 
 @Injectable()
-export class UsersService {
-  private readonly logger = new DefaultLogger(UsersService.name);
+export class UsersCreateService {
+  private readonly logger = new DefaultLogger(UsersCreateService.name);
 
-  constructor(private service: UserCreateRepository) {}
+  constructor(private repository: UserCreateRepository) {}
 
   async execute(data: CreateUserDto): Promise<UserPrimitive> {
     try {
-      const user = await this.service.execute(data);
+      const user = await this.repository.execute(data);
 
       return user;
     } catch (error: unknown) {
@@ -24,7 +24,7 @@ export class UsersService {
 
       return httpErrorResponse({
         message: 'Error creating user',
-        status: 500,
+        statusCode: 500,
       });
     }
   }
