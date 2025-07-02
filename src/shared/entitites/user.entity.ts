@@ -1,13 +1,16 @@
 export interface UserPrimitive {
   id?: number;
-  name?: string | null;
+  username: string;
   email: string;
-  password?: string;
+  rut?: string | null;
+  name?: string | null;
   createdAt?: Date;
+  updatedAt?: Date;
 }
 
 export class UserEntity implements UserPrimitive {
   id?: number;
+  username: string;
   name?: string | null;
   email: string;
   password?: string;
@@ -18,17 +21,15 @@ export class UserEntity implements UserPrimitive {
     this.id = data.id;
     this.name = data.name;
     this.email = data.email;
-    this.password = data.password;
     this.createdAt = data.createdAt || new Date();
   }
 
   toPrimitive(): UserPrimitive {
     return {
       id: this.id,
+      username: this.username,
       name: this.name,
       email: this.email,
-      password: this.password,
-      createdAt: this.createdAt,
     };
   }
 }

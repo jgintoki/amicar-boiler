@@ -14,17 +14,17 @@ const getRequestData = (data: unknown): Record<string, unknown> => {
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   if (data && data['body'] && Object.keys(data['body']).length > 0) {
-    result.body = data['body'] as Record<string, unknown>;
+    result.body = data['body'];
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   if (data && data['query'] && Object.keys(data['query']).length > 0) {
-    result.query = data['query'] as Record<string, unknown>;
+    result.query = data['query'];
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
   if (data && data['params'] && Object.keys(data['params']).length > 0) {
-    result.params = data['params'] as Record<string, unknown>;
+    result.params = data['params'];
   }
 
   return result;

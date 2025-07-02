@@ -12,7 +12,7 @@ export const httpErrorResponse = (params: HttpResponse) => {
       ...defaultParams,
       statusCode: params.statusCode,
       message: params.message,
-      response: params.response,
+      data: params.data,
     },
     params.statusCode,
   );
@@ -24,6 +24,6 @@ export const httpSuccessResponse = <T extends Record<string, unknown>>(
   return {
     statusCode: params.statusCode,
     message: params.message,
-    response: params.response,
+    data: params.data,
   };
 };

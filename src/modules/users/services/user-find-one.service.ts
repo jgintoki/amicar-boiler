@@ -1,33 +1,27 @@
 import { Injectable } from '@nestjs/common';
-import { UserPrimitive } from 'src/shared/entitites/user';
 import { DefaultLogger } from 'src/shared/helpers/default-logger.helper';
 import { httpErrorResponse } from 'src/shared/helpers/http-responses.helper';
 import { UserFindOneRepository } from '../repositories/user-find-one-repository';
+import { UserPrimitive } from 'src/shared/entitites/user.entity';
+
 @Injectable()
 export class UserFindOneService {
   private logger = new DefaultLogger(UserFindOneService.name);
 
   constructor(private readonly repository: UserFindOneRepository) {}
 
-  async execute(id: number): Promise<UserPrimitive> {
-    try {
-      const user = await this.repository.execute(id);
+  async execute(params: Partial<UserPrimitive>): Promise<UserPrimitive> {
+    const user = await this.repository.execute({
+      ...params,
+    });
 
-      if (!user) {
-        return httpErrorResponse({
-          statusCode: 404,
-          message: 'User not found',
-        });
-      }
-
-      return user;
-    } catch (error: unknown) {
-      this.logger.error({
-        message: (error as Error).message,
-        stack: (error as Error).stack,
+    if (!user) {
+      return httpErrorResponse({
+        message: 'User not found',
+        statusCode: 404,
       });
-
-      throw new Error('Error finding user');
     }
+
+    return user;
   }
 }

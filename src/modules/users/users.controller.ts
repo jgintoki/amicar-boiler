@@ -24,6 +24,6 @@ export class UsersController {
 
   @Get(':id')
   async findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.userFindOneService.execute(id);
+    return this.userFindOneService.execute({ id });
   }
 }

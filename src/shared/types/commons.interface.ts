@@ -3,8 +3,8 @@ export interface HttpResponse<
 > {
   statusCode: number;
   title?: string;
-  message: string;
-  response?: T;
+  message?: string;
+  data?: T;
 }
 
 export interface ToolboxConfiguration {
