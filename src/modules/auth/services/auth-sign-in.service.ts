@@ -1,6 +1,6 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { AuthSignInDto } from '../dtos/auth-sign-in.dto';
-import { SsoService } from 'src/shared/services/sso-services/sso.service';
+import { SsoService } from 'src/shared/services/sso/sso.service';
 import { UserFindOrCreateService } from 'src/modules/users/services/user-find-or-create.service';
 import { JwtService } from '@nestjs/jwt';
 

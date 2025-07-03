@@ -3,9 +3,9 @@ import { ConfigService } from '@nestjs/config';
 import {
   ToolboxConfiguration,
   ToolboxLoginResponse,
-} from '../types/commons.interface';
-import { DefaultLogger } from '../helpers/default-logger.helper';
-import { FetchService } from './fetch/fetch.service';
+} from './toolbox.interfaces';
+import { DefaultLogger } from 'src/shared/helpers/default-logger.helper';
+import { FetchService } from '../fetch/fetch.service';
 
 @Injectable()
 export class ToolboxLoginService {
