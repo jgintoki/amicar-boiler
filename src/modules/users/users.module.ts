@@ -6,9 +6,10 @@ import { UserCreateRepository } from './repositories/user-create.repository';
 import { UserFindOneService } from './services/user-find-one.service';
 import { UserFindOneRepository } from './repositories/user-find-one-repository';
 import { UserFindOrCreateService } from './services/user-find-or-create.service';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [],
+  imports: [ConfigModule],
   providers: [
     PrismaService,
     UserCreateRepository,
