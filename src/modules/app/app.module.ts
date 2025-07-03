@@ -8,7 +8,6 @@ import { UsersModule } from '../users/users.module';
 import configuration from 'src/config/configuration';
 import { JwtModule } from '@nestjs/jwt';
 import { FetchModule } from 'src/shared/services/fetch/fetch.module';
-import { PrismaModule } from 'src/shared/services/prisma/prisma.module';
 
 @Module({
   imports: [
@@ -26,7 +25,6 @@ import { PrismaModule } from 'src/shared/services/prisma/prisma.module';
       inject: [ConfigService],
     }),
     FetchModule,
-    PrismaModule,
     AuthModule,
     UsersModule,
   ],
