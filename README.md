@@ -159,9 +159,3 @@ Puedes ver todos los scripts en `package.json`. Aquí están los más importante
 *   `npm run lint`: Revisa el código en busca de errores de estilo con ESLint.
 *   `npm run test`: Ejecuta las pruebas unitarias.
 *   `npm run test:e2e`: Ejecuta las pruebas end-to-end.
-
----
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia UNLICENSED.
