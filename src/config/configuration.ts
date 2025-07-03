@@ -11,4 +11,9 @@ export default () => ({
     codeLoginUrl: '/login-external/code-login',
     tokenValidation: '/login-external/token-validation',
   },
+  toolbox: {
+    baseUrl: process.env.TOOLBOX_URL,
+    clientId: process.env.TOOLBOX_CLIENT_ID,
+    secret: process.env.TOOLBOX_CLIENT_SECRET,
+  },
 });
