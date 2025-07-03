@@ -1,11 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
-import { FetchService } from './fetcher.service';
 import {
   ToolboxConfiguration,
   ToolboxLoginResponse,
 } from '../types/commons.interface';
 import { DefaultLogger } from '../helpers/default-logger.helper';
+import { FetchService } from './fetch/fetch.service';
 
 @Injectable()
 export class ToolboxLoginService {
